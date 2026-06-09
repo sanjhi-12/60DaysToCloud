@@ -1,257 +1,537 @@
-1. whoami
-Command
-whoami
-Purpose
+# Permissions & Users Commands
+
+This section covers Linux user management, groups, file permissions, ownership, and privilege escalation. These concepts are critical for Cloud Engineers, DevOps Engineers, SREs, and System Administrators.
+
+---
+
+## 1. `whoami`
+
+### Purpose
 
 Shows the currently logged-in user.
 
-Example
+### Command
 
-Output:
+```bash
+whoami
+```
 
+### Example Output
+
+```text
 ubuntu
+```
 
 or
 
+```text
 sanjhi
-Interview Question
+```
 
-How do you check which user you're currently using?
+### Interview Question
+
+**How do you check which user you're currently using?**
 
 Answer:
 
+```bash
 whoami
-2. id
-Command
+```
+
+---
+
+## 2. `id`
+
+### Purpose
+
+Displays detailed user information.
+
+### Command
+
+```bash
 id
-Purpose
+```
 
-Shows detailed user information.
+### Example Output
 
-Example
-
-Output:
-
+```text
 uid=1000(ubuntu)
 gid=1000(ubuntu)
 groups=1000(ubuntu)
-Explanation
-uid = User ID
+```
 
-gid = Group ID
+### Explanation
 
-groups = Groups user belongs to
-3. groups
-Command
+| Term   | Meaning                    |
+| ------ | -------------------------- |
+| uid    | User ID                    |
+| gid    | Group ID                   |
+| groups | Groups the user belongs to |
+
+### Used When
+
+* Checking user permissions
+* Troubleshooting access issues
+
+---
+
+## 3. `groups`
+
+### Purpose
+
+Shows all groups the current user belongs to.
+
+### Command
+
+```bash
 groups
-Purpose
+```
 
-Shows all groups of the current user.
+### Example Output
 
-Example
-
-Output:
-
+```text
 ubuntu sudo docker
-Why Important?
+```
 
-Many permissions are controlled through groups.
+### Why Important?
+
+Many Linux permissions are controlled through groups.
 
 Example:
 
-docker group
+```text
+docker
+```
 
-lets you run Docker without sudo.
+Users in the Docker group can run Docker commands without using `sudo`.
 
-4. ls -l
-Command
+---
+
+## 4. `ls -l`
+
+### Purpose
+
+Displays file permissions.
+
+### Command
+
+```bash
 ls -l
-Purpose
+```
 
-Shows file permissions.
+### Example Output
 
-Example
+```text
 -rwxr-xr-x 1 user user 100 file.txt
-Breakdown
+```
+
+---
+
+### Permission Breakdown
+
+```text
 -rwxr-xr-x
+```
 
-means:
+Meaning:
 
+```text
 Owner   Group   Others
 
 rwx     r-x     r-x
-Permission Meaning
-r = Read
+```
 
-w = Write
+---
 
-x = Execute
-5. chmod
-Command
+### Permission Meanings
+
+| Symbol | Meaning |
+| ------ | ------- |
+| r      | Read    |
+| w      | Write   |
+| x      | Execute |
+
+---
+
+## 5. `chmod`
+
+### Purpose
+
+Changes file permissions.
+
+### Command
+
+```bash
 chmod permissions file
-Purpose
+```
 
-Changes permissions.
+---
 
-Example 1
+### Example 1: Make File Executable
 
-Make executable:
-
+```bash
 chmod +x script.sh
+```
 
 Before:
 
+```text
 -rw-r--r--
+```
 
 After:
 
+```text
 -rwxr-xr-x
-Example 2
+```
+
+---
+
+### Example 2
+
+```bash
 chmod 755 script.sh
-Meaning
+```
+
+Meaning:
+
+```text
 Owner  = 7 = rwx
 
 Group  = 5 = r-x
 
 Others = 5 = r-x
-Example 3
+```
+
+---
+
+### Example 3
+
+```bash
 chmod 644 notes.txt
-Meaning
+```
+
+Meaning:
+
+```text
 Owner  = rw-
 
 Group  = r--
 
 Others = r--
+```
 
-Very common for files.
+Very common permission setting for files.
 
-Understanding Numbers
-Read
+---
+
+## Understanding Permission Numbers
+
+### Read
+
+```text
 r = 4
-Write
+```
+
+### Write
+
+```text
 w = 2
-Execute
+```
+
+### Execute
+
+```text
 x = 1
-Examples
-7
-4 + 2 + 1
+```
 
-rwx
-6
-4 + 2
+---
 
-rw-
-5
-4 + 1
+### Common Values
 
-r-x
-4
-4
+| Number | Permission |
+| ------ | ---------- |
+| 7      | rwx        |
+| 6      | rw-        |
+| 5      | r-x        |
+| 4      | r--        |
 
-r--
-Interview Question
+---
 
-What does:
+### Interview Question
 
-chmod 755 script.sh
-
-mean?
+**What does `chmod 755 script.sh` mean?**
 
 Answer:
 
+```text
 Owner  : rwx
 
 Group  : r-x
 
 Others : r-x
-6. chown
-Command
+```
+
+---
+
+## 6. `chown`
+
+### Purpose
+
+Changes ownership of a file or directory.
+
+### Command
+
+```bash
 sudo chown user file.txt
-Purpose
+```
 
-Changes owner of a file.
+### Example
 
-Example
+```bash
 sudo chown ubuntu notes.txt
+```
 
 Now:
 
+```text
 ubuntu
+```
 
 owns the file.
 
-Difference
-chmod
-Changes permissions
-chown
-Changes ownership
+---
 
-Interview favorite.
+### Difference Between `chmod` and `chown`
 
-7. chgrp
-Command
-sudo chgrp developers file.txt
-Purpose
+| Command | Purpose             |
+| ------- | ------------------- |
+| chmod   | Changes permissions |
+| chown   | Changes ownership   |
+
+### Interview Favorite
+
+Many interviewers ask this distinction.
+
+---
+
+## 7. `chgrp`
+
+### Purpose
 
 Changes group ownership.
 
-Example
+### Command
+
+```bash
+sudo chgrp developers file.txt
+```
+
+### Example
+
+```bash
 sudo chgrp docker script.sh
-8. sudo
-Command
-sudo command
-Full Form
+```
+
+---
+
+## 8. `sudo`
+
+### Full Form
+
+```text
 Super User Do
-Purpose
+```
 
-Run command as administrator.
+### Purpose
 
-Example
+Runs commands with administrator privileges.
+
+### Command
+
+```bash
+sudo command
+```
+
+### Example
+
+```bash
 sudo apt update
-Why Important?
+```
 
-Normal users cannot perform system-level tasks.
+### Why Important?
 
-9. passwd
-Command
+Normal users cannot perform system-level operations.
+
+---
+
+## 9. `passwd`
+
+### Purpose
+
+Changes the current user's password.
+
+### Command
+
+```bash
 passwd
-Purpose
+```
 
-Change current user's password.
+### Example
 
-Example
+```bash
 passwd
+```
 
 Prompts:
 
+```text
 Current Password
 
 New Password
 
 Confirm Password
-10. su
-Command
-su username
-Full Form
+```
+
+---
+
+## 10. `su`
+
+### Full Form
+
+```text
 Switch User
-Purpose
+```
 
-Switch to another account.
+### Purpose
 
-Example
+Switches to another user account.
+
+### Command
+
+```bash
+su username
+```
+
+### Example
+
+```bash
 su root
+```
 
-Switches to root user.
+Switches to the root account.
 
-11. umask
-Command
+---
+
+## 11. `umask`
+
+### Purpose
+
+Shows the default permissions assigned to newly created files and directories.
+
+### Command
+
+```bash
 umask
-Purpose
+```
 
-Shows default permissions for newly created files.
+### Example Output
 
-Example
-
-Output:
-
+```text
 0022
+```
+
+### Why Important?
+
+Determines default permission settings for new files.
+
+---
+
+# Quick Revision Table
+
+| Command | Purpose                  |
+| ------- | ------------------------ |
+| whoami  | Show current user        |
+| id      | Show user details        |
+| groups  | Show user groups         |
+| ls -l   | View permissions         |
+| chmod   | Change permissions       |
+| chown   | Change ownership         |
+| chgrp   | Change group ownership   |
+| sudo    | Run as administrator     |
+| passwd  | Change password          |
+| su      | Switch user              |
+| umask   | View default permissions |
+
+---
+
+# Most Frequently Used Commands
+
+```bash
+whoami
+id
+groups
+ls -l
+chmod
+chmod 755
+chmod 644
+chmod +x
+chown
+sudo
+passwd
+su
+```
+
+These commands form the foundation of Linux security, access control, and user management.
+
+---
+
+# Interview Questions
+
+### Q1. Difference between `chmod` and `chown`?
+
+**Answer**
+
+```text
+chmod → Changes permissions
+
+chown → Changes ownership
+```
+
+---
+
+### Q2. What does `chmod 755` mean?
+
+**Answer**
+
+```text
+Owner  : rwx
+
+Group  : r-x
+
+Others : r-x
+```
+
+---
+
+### Q3. What does `sudo` do?
+
+**Answer**
+
+```text
+Runs commands with administrator privileges.
+```
+
+---
+
+### Q4. What do `r`, `w`, and `x` mean?
+
+**Answer**
+
+```text
+r = Read
+
+w = Write
+
+x = Execute
+```

@@ -1,137 +1,343 @@
-1. whoami
+# Linux Basics Commands
+
+This section covers the fundamental Linux commands every Cloud Engineer, DevOps Engineer, and SRE should know.
+
+---
+
+## 1. `whoami`
+
+### Purpose
+
+Shows the currently logged-in user.
+
+### Command
+
+```bash
 whoami
-Purpose
+```
 
-Shows the current logged-in user.
+### Example Output
 
-Example Output
+```text
 sanjhi
-Used When
-Checking which account you're using
-Working on servers
-2. hostname
+```
+
+### Used When
+
+* Checking which account you're using
+* Working on servers
+
+---
+
+## 2. `hostname`
+
+### Purpose
+
+Shows the machine/server name.
+
+### Command
+
+```bash
 hostname
-Purpose
+```
 
-Shows machine/server name.
+### Example Output
 
-Example Output
+```text
 ubuntu-server
-Used When
-Identifying servers
-SSH troubleshooting
-3. date
+```
+
+### Used When
+
+* Identifying servers
+* SSH troubleshooting
+
+---
+
+## 3. `date`
+
+### Purpose
+
+Displays the current date and time.
+
+### Command
+
+```bash
 date
-Purpose
+```
 
-Shows current date and time.
+### Example Output
 
-Example Output
+```text
 Mon Jun 8 10:30:15 IST 2026
-Used When
-Checking server time
-Log analysis
-4. cal
+```
+
+### Used When
+
+* Checking server time
+* Log analysis
+
+---
+
+## 4. `cal`
+
+### Purpose
+
+Displays a calendar.
+
+### Command
+
+```bash
 cal
-Purpose
+```
 
-Displays calendar.
+### Example Output
 
-Example Output
+```text
 June 2026
-Used When
+```
 
-Rarely used, but good beginner command.
+### Used When
 
-5. history
-history
-Purpose
+* Quickly viewing dates
+* Basic Linux practice
+
+---
+
+## 5. `history`
+
+### Purpose
 
 Shows previously executed commands.
 
-Example Output
+### Command
+
+```bash
+history
+```
+
+### Example Output
+
+```text
 1 pwd
 2 ls
 3 mkdir linux
-Used When
-Forgot a command
-Reviewing previous work
-6. clear
+```
+
+### Used When
+
+* Reviewing previous commands
+* Recovering forgotten commands
+
+---
+
+## 6. `clear`
+
+### Purpose
+
+Clears the terminal screen.
+
+### Command
+
+```bash
 clear
-Purpose
+```
 
-Clears terminal screen.
+### Used When
 
-7. uname
+* Keeping the terminal clean and readable
+
+---
+
+## 7. `uname`
+
+### Purpose
+
+Shows the operating system name.
+
+### Command
+
+```bash
 uname
-Purpose
+```
 
-Shows operating system name.
+### Example Output
 
-Example Output
+```text
 Linux
-8. uname -a
+```
+
+---
+
+## 8. `uname -a`
+
+### Purpose
+
+Displays detailed operating system information.
+
+### Command
+
+```bash
 uname -a
-Purpose
+```
 
-Shows detailed OS information.
+### Example Output
 
-Example Output
+```text
 Linux ubuntu 5.15 ...
-Used When
-Checking Linux version
-Server troubleshooting
-9. uptime
+```
+
+### Used When
+
+* Checking Linux version
+* Troubleshooting servers
+
+---
+
+## 9. `uptime`
+
+### Purpose
+
+Shows how long the system has been running.
+
+### Command
+
+```bash
 uptime
-Purpose
+```
 
-Shows how long system has been running.
+### Example Output
 
-Example Output
+```text
 up 5 days
-Used When
-Monitoring servers
-10. id
+```
+
+### Used When
+
+* Monitoring server uptime
+
+---
+
+## 10. `id`
+
+### Purpose
+
+Displays user ID and group information.
+
+### Command
+
+```bash
 id
-Purpose
+```
 
-Shows user ID and group information.
+### Example Output
 
-Example Output
+```text
 uid=1000 gid=1000 groups=1000
-11. groups
+```
+
+---
+
+## 11. `groups`
+
+### Purpose
+
+Shows all groups the current user belongs to.
+
+### Command
+
+```bash
 groups
-Purpose
+```
 
-Shows groups the user belongs to.
+### Example Output
 
-Example Output
+```text
 sudo docker users
-12. man
+```
+
+---
+
+## 12. `man`
+
+### Purpose
+
+Displays the manual page for a command.
+
+### Command
+
+```bash
 man ls
-Purpose
+```
 
-Shows manual/help page.
+### Examples
 
-Example
+```bash
 man pwd
 man mkdir
-Used When
-Learning new commands
-13. echo
+```
+
+### Used When
+
+* Learning new commands
+* Understanding command options
+
+---
+
+## 13. `echo`
+
+### Purpose
+
+Prints text to the terminal.
+
+### Command
+
+```bash
 echo "Hello Linux"
-Purpose
+```
 
-Print text to terminal.
+### Example Output
 
-Example Output
+```text
 Hello Linux
-14. exit
+```
+
+---
+
+## 14. `exit`
+
+### Purpose
+
+Closes the current terminal or SSH session.
+
+### Command
+
+```bash
 exit
-Purpose
+```
 
-Closes terminal session.
+### Used When
 
-Used When
-Disconnecting from SSH
-Leaving terminal
+* Disconnecting from SSH
+* Leaving the terminal
+
+---
+
+# Quick Revision Table
+
+| Command  | Purpose                    |
+| -------- | -------------------------- |
+| whoami   | Show current user          |
+| hostname | Show machine name          |
+| date     | Show current date and time |
+| cal      | Display calendar           |
+| history  | Show command history       |
+| clear    | Clear terminal             |
+| uname    | Show OS name               |
+| uname -a | Show detailed OS info      |
+| uptime   | Show system uptime         |
+| id       | Show user information      |
+| groups   | Show user groups           |
+| man      | Open command manual        |
+| echo     | Print text                 |
+| exit     | Close terminal session     |

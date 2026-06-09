@@ -1,213 +1,495 @@
-1. mkdir
-Command
-mkdir foldername
-Full Form
+# File Management Commands
+
+This section covers the Linux commands used to create, copy, move, rename, and delete files and directories.
+
+---
+
+## 1. `mkdir`
+
+### Full Form
+
 Make Directory
-Purpose
 
-Creates a new folder.
+### Purpose
 
-Example
+Creates a new directory (folder).
+
+### Command
+
+```bash
+mkdir foldername
+```
+
+### Example
+
+```bash
 mkdir linux
+```
 
 Check:
 
+```bash
 ls
+```
 
 Output:
 
+```text
 linux
-Create Multiple Folders
+```
+
+---
+
+### Create Multiple Folders
+
+```bash
 mkdir linux git networking
-Create Nested Folders
+```
+
+---
+
+### Create Nested Folders
+
+```bash
 mkdir -p project/docs/images
+```
 
 Creates:
 
+```text
 project
 └── docs
     └── images
-2. touch
-Command
-touch file.txt
-Purpose
+```
+
+---
+
+## 2. `touch`
+
+### Purpose
 
 Creates an empty file.
 
-Example
+### Command
+
+```bash
+touch file.txt
+```
+
+### Example
+
+```bash
 touch notes.txt
+```
 
 Check:
 
+```bash
 ls
+```
 
 Output:
 
+```text
 notes.txt
-Create Multiple Files
+```
+
+---
+
+### Create Multiple Files
+
+```bash
 touch file1.txt file2.txt file3.txt
-3. echo
-Command
+```
+
+---
+
+## 3. `echo`
+
+### Purpose
+
+Displays text and writes data into files.
+
+### Command
+
+```bash
 echo "Hello Linux"
-Purpose
+```
 
-Displays text.
+### Example
 
-Example
+```bash
 echo "Learning Linux"
+```
 
 Output:
 
+```text
 Learning Linux
-Write Text To File
+```
+
+---
+
+### Write Text to a File
+
+```bash
 echo "Linux Day 1" > notes.txt
+```
 
-View:
+View content:
 
+```bash
 cat notes.txt
+```
 
 Output:
 
+```text
 Linux Day 1
-Append Text
+```
+
+---
+
+### Append Text to a File
+
+```bash
 echo "Linux is powerful" >> notes.txt
+```
 
-View:
+View content:
 
+```bash
 cat notes.txt
+```
 
 Output:
 
+```text
 Linux Day 1
 Linux is powerful
-Difference
->    Overwrites file
+```
 
->>   Appends to file
+---
 
-Interview favorite.
+### Difference Between `>` and `>>`
 
-4. cp
-Command
-cp source.txt destination.txt
-Full Form
+| Symbol | Purpose                          |
+| ------ | -------------------------------- |
+| `>`    | Overwrites existing content      |
+| `>>`   | Appends content to existing file |
+
+### Interview Question
+
+**What is the difference between `>` and `>>`?**
+
+Answer:
+
+```text
+>  → Overwrite file
+
+>> → Append to file
+```
+
+---
+
+## 4. `cp`
+
+### Full Form
+
 Copy
-Purpose
 
-Copies files.
+### Purpose
 
-Example
+Copies files and directories.
+
+### Command
+
+```bash
+cp source.txt destination.txt
+```
+
+### Example
+
+```bash
 cp notes.txt backup.txt
+```
 
 Result:
 
+```text
 notes.txt
 backup.txt
-Copy Folder
+```
+
+---
+
+### Copy Entire Directory
+
+```bash
 cp -r folder1 folder2
-Purpose
+```
 
-Copies entire folder.
+### Example
 
-Example:
-
+```bash
 cp -r linux linux_backup
-5. mv
-Command
-mv old.txt new.txt
-Full Form
+```
+
+### Note
+
+```text
+-r = Recursive
+```
+
+Required when copying directories.
+
+---
+
+## 5. `mv`
+
+### Full Form
+
 Move
-Purpose
 
-Moves or renames files.
+### Purpose
 
-Rename File
+Moves or renames files and directories.
+
+### Command
+
+```bash
+mv old.txt new.txt
+```
+
+---
+
+### Rename File
+
+```bash
 mv notes.txt linux_notes.txt
+```
 
 Before:
 
+```text
 notes.txt
+```
 
 After:
 
+```text
 linux_notes.txt
-Move File
+```
+
+---
+
+### Move File
+
+```bash
 mv linux_notes.txt backups/
-Move Folder
+```
+
+---
+
+### Move Directory
+
+```bash
 mv project archive/
-6. rm
-Command
-rm file.txt
-Full Form
+```
+
+---
+
+## 6. `rm`
+
+### Full Form
+
 Remove
-Purpose
+
+### Purpose
 
 Deletes files.
 
-Example
+### Command
+
+```bash
+rm file.txt
+```
+
+### Example
+
+```bash
 rm notes.txt
-Warning
+```
+
+### Warning
+
+```text
 Deleted = Deleted
+```
 
-No recycle bin.
+Linux does not move files to a recycle bin by default.
 
-7. rmdir
-Command
+---
+
+## 7. `rmdir`
+
+### Purpose
+
+Deletes empty directories.
+
+### Command
+
+```bash
 rmdir folder
-Purpose
+```
 
-Deletes empty folders.
+### Example
 
-Example
+```bash
 mkdir temp
 
 rmdir temp
-Important
+```
 
-Works only if folder is empty.
+### Important
 
-8. rm -r
-Command
+```text
+rmdir only works on empty directories.
+```
+
+---
+
+## 8. `rm -r`
+
+### Purpose
+
+Deletes directories and all contents inside them.
+
+### Command
+
+```bash
 rm -r folder
-Purpose
+```
 
-Deletes folder and all contents.
+### Example
 
-Example
+```bash
 rm -r project
-Interview Note
+```
+
+---
+
+### Dangerous Version
+
+```bash
 rm -rf folder
+```
 
-means:
+Meaning:
 
--r = recursive
+```text
+-r = Recursive
 
--f = force
+-f = Force
+```
 
-Very powerful command.
+### Interview Note
 
-9. file
-Command
+`rm -rf` is one of the most powerful and dangerous Linux commands because it deletes files and folders without confirmation.
+
+---
+
+## 9. `file`
+
+### Purpose
+
+Identifies the type of a file.
+
+### Command
+
+```bash
 file notes.txt
-Purpose
+```
 
-Shows file type.
+### Example Output
 
-Example
-
-Output:
-
+```text
 notes.txt: ASCII text
-10. stat
-Command
+```
+
+### Used When
+
+* Identifying unknown files
+* Troubleshooting file formats
+
+---
+
+## 10. `stat`
+
+### Purpose
+
+Displays detailed information about a file.
+
+### Command
+
+```bash
 stat notes.txt
-Purpose
+```
 
-Shows detailed file information.
+### Shows
 
-Displays
-Size
-Permissions
-Owner
-Creation time
-Modification time
+* File Size
+* Permissions
+* Owner
+* Group
+* Creation Time
+* Modification Time
+* Access Time
+
+### Example Output
+
+```text
+File: notes.txt
+Size: 120
+Access: rw-r--r--
+Owner: ubuntu
+Modified: 2026-06-08
+```
+
+---
+
+# Quick Revision Table
+
+| Command  | Purpose                      |
+| -------- | ---------------------------- |
+| mkdir    | Create directory             |
+| mkdir -p | Create nested directories    |
+| touch    | Create file                  |
+| echo     | Display/write text           |
+| cp       | Copy file                    |
+| cp -r    | Copy directory               |
+| mv       | Move or rename               |
+| rm       | Delete file                  |
+| rmdir    | Delete empty directory       |
+| rm -r    | Delete directory recursively |
+| file     | Show file type               |
+| stat     | Show file details            |
+
+---
+
+# Most Frequently Used Commands
+
+```bash
+mkdir
+touch
+echo
+cp
+cp -r
+mv
+rm
+rm -r
+file
+stat
+```
+
+These commands form the foundation of file management in Linux and are used daily by Cloud Engineers, DevOps Engineers, and System Administrators.

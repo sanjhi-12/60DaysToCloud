@@ -1,204 +1,448 @@
-1. cat
-Command
-cat file.txt
-Full Form
+# File Viewing Commands
+
+This section covers Linux commands used to view, inspect, and monitor file contents. These commands are especially important for reading logs, troubleshooting applications, and analyzing system files.
+
+---
+
+## 1. `cat`
+
+### Full Form
+
 Concatenate
-Purpose
+
+### Purpose
 
 Displays the entire content of a file.
 
-Example
+### Command
 
-Create file:
+```bash
+cat file.txt
+```
 
+### Example
+
+Create a file:
+
+```bash
 echo "Linux Learning" > notes.txt
+```
 
-View:
+View file content:
 
+```bash
 cat notes.txt
+```
 
-Output:
+### Example Output
 
+```text
 Linux Learning
-Multiple Files
+```
+
+---
+
+### View Multiple Files
+
+```bash
 cat file1.txt file2.txt
+```
 
-Displays both files together.
+Displays the contents of both files together.
 
-2. more
-Command
-more file.txt
-Purpose
+---
+
+## 2. `more`
+
+### Purpose
 
 Views large files page by page.
 
-Example
+### Command
+
+```bash
+more file.txt
+```
+
+### Example
+
+```bash
 more notes.txt
-Controls
-Space → Next page
+```
 
-Enter → Next line
+### Controls
 
-q → Quit
-3. less
-Command
-less file.txt
-Purpose
+| Key   | Action    |
+| ----- | --------- |
+| Space | Next page |
+| Enter | Next line |
+| q     | Quit      |
+
+### Used When
+
+Viewing large files without opening an editor.
+
+---
+
+## 3. `less`
+
+### Purpose
 
 Advanced file viewer.
 
-More powerful than more.
+More powerful than `more` because it allows forward and backward navigation.
 
-Example
+### Command
+
+```bash
+less file.txt
+```
+
+### Example
+
+```bash
 less notes.txt
-Controls
-Arrow Keys → Navigate
+```
 
-/Page Down → Forward
+### Controls
 
-Page Up → Backward
+| Key       | Action        |
+| --------- | ------------- |
+| ↑ / ↓     | Navigate      |
+| Page Down | Move forward  |
+| Page Up   | Move backward |
+| q         | Quit          |
 
-q → Quit
-Interview Note
+### Interview Note
 
-For large logs:
+For large log files:
 
+```bash
 less app.log
+```
 
-is preferred.
+is generally preferred over `cat`.
 
-4. head
-Command
+---
+
+## 4. `head`
+
+### Purpose
+
+Displays the first 10 lines of a file.
+
+### Command
+
+```bash
 head file.txt
-Purpose
+```
 
-Shows first 10 lines.
+### Example
 
-Example
+Create a file:
 
-Create:
-
+```bash
 echo "Line1" > data.txt
 echo "Line2" >> data.txt
 echo "Line3" >> data.txt
+```
 
 Run:
 
+```bash
 head data.txt
+```
 
-Output:
+### Example Output
 
+```text
 Line1
 Line2
 Line3
-First 5 Lines
+```
+
+---
+
+### Show First 5 Lines
+
+```bash
 head -5 data.txt
-5. tail
-Command
+```
+
+---
+
+### Used When
+
+* Checking file headers
+* Reading the beginning of log files
+
+---
+
+## 5. `tail`
+
+### Purpose
+
+Displays the last 10 lines of a file.
+
+### Command
+
+```bash
 tail file.txt
-Purpose
+```
 
-Shows last 10 lines.
+### Example
 
-Example
+```bash
 tail data.txt
+```
 
-Output:
+### Example Output
 
+```text
 Line1
 Line2
 Line3
-Last 5 Lines
+```
+
+---
+
+### Show Last 5 Lines
+
+```bash
 tail -5 data.txt
-6. tail -f
-Command
+```
+
+### Used When
+
+* Reading recent log entries
+* Viewing the latest activity in a file
+
+---
+
+## 6. `tail -f`
+
+### Purpose
+
+Monitors file updates in real time.
+
+### Command
+
+```bash
 tail -f app.log
-Purpose
+```
 
-Live log monitoring.
+### Why Important?
 
-Why Important?
+When applications continuously write logs:
 
-When applications generate logs continuously:
-
+```text
 User Login
 Database Connected
 Request Received
+```
 
-you can watch them in real time.
+new entries appear immediately in the terminal.
 
-DevOps/SRE Use
+---
+
+### DevOps / SRE Usage
+
+```bash
 tail -f nginx.log
+```
 
 One of the most commonly used troubleshooting commands.
 
-7. wc
-Command
-wc file.txt
-Full Form
+### Used When
+
+* Monitoring application logs
+* Debugging servers
+* Tracking live activity
+
+---
+
+## 7. `wc`
+
+### Full Form
+
 Word Count
-Purpose
 
-Counts:
+### Purpose
 
-Lines
-Words
-Characters
-Example
+Counts lines, words, and characters in a file.
+
+### Command
+
+```bash
+wc file.txt
+```
+
+### Example
+
+```bash
 wc data.txt
+```
 
-Output:
+### Example Output
 
+```text
 3 3 18 data.txt
+```
 
 Meaning:
 
+```text
 Lines Words Characters
-Count Lines Only
+```
+
+---
+
+### Count Lines Only
+
+```bash
 wc -l data.txt
-Count Words Only
+```
+
+---
+
+### Count Words Only
+
+```bash
 wc -w data.txt
-Count Characters Only
+```
+
+---
+
+### Count Characters Only
+
+```bash
 wc -c data.txt
-8. nl
-Command
+```
+
+---
+
+## 8. `nl`
+
+### Purpose
+
+Displays file contents with line numbers.
+
+### Command
+
+```bash
 nl file.txt
-Purpose
+```
 
-Shows line numbers.
+### Example
 
-Example
+```bash
 nl notes.txt
+```
 
-Output:
+### Example Output
 
+```text
 1 Linux Learning
 2 Cloud Engineering
-9. tac
-Command
-tac file.txt
-Purpose
+```
+
+### Used When
+
+* Reviewing scripts
+* Referring to specific line numbers
+
+---
+
+## 9. `tac`
+
+### Purpose
 
 Displays file content in reverse order.
 
-Example
+### Command
 
-File:
+```bash
+tac file.txt
+```
 
+### Example
+
+File Content:
+
+```text
 Line1
 Line2
 Line3
+```
 
-Output:
+Run:
 
+```bash
+tac file.txt
+```
+
+### Output
+
+```text
 Line3
 Line2
 Line1
-10. strings
-Command
-strings file
-Purpose
+```
+
+---
+
+## 10. `strings`
+
+### Purpose
 
 Extracts readable text from binary files.
 
-Used occasionally for debugging.
+### Command
+
+```bash
+strings file
+```
+
+### Example
+
+```bash
+strings binaryfile
+```
+
+### Used When
+
+* Debugging applications
+* Investigating binary files
+* Finding readable information inside executables
+
+---
+
+# Quick Revision Table
+
+| Command | Purpose                                 |
+| ------- | --------------------------------------- |
+| cat     | Display file content                    |
+| more    | View file page by page                  |
+| less    | Advanced file viewer                    |
+| head    | Show first lines                        |
+| tail    | Show last lines                         |
+| tail -f | Live log monitoring                     |
+| wc      | Count lines, words, characters          |
+| nl      | Show line numbers                       |
+| tac     | Reverse file content                    |
+| strings | Extract readable text from binary files |
+
+---
+
+# Most Frequently Used Commands
+
+```bash
+cat
+less
+head
+tail
+tail -f
+wc
+```
+
+These commands are heavily used in Cloud Engineering, DevOps, SRE, and System Administration for reading logs, troubleshooting applications, and monitoring systems.
