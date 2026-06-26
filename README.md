@@ -31,70 +31,87 @@ Documenting my 60-day journey to become a Cloud Engineer.
 
 ### Week 1 - Cloud Foundations
 
-* [ ] Cloud Provider Selection
-* [ ] Cloud Console Exploration
-* [ ] Static Website Deployment
+- [ ] Cloud Provider Selection
+- [ ] Console Exploration
+- [ ] Deploy Static Website
 
 ### Week 2 - Linux & Networking
 
-* [ ] Virtual Machine Creation
-* [ ] SSH Access
-* [ ] Nginx Deployment
+- [ ] Launch VM
+- [ ] SSH into VM
+- [ ] Nginx Setup
+- [ ] Log Analysis
 
 ### Week 3 - Terraform
 
-* [ ] Terraform Basics
-* [ ] Infrastructure as Code
+- [ ] Terraform Basics
+- [ ] Variables & Outputs
+- [ ] State Management
 
 ### Week 4 - Docker & Kubernetes
 
-* [ ] Docker Basics
-* [ ] Containerization
-* [ ] Kubernetes Deployment
+- [ ] Docker Fundamentals
+- [ ] Containerization
+- [ ] Kubernetes Basics
 
 ### Week 5 - CI/CD
 
-* [ ] GitHub Actions
-* [ ] Deployment Automation
+- [ ] GitHub Actions
+- [ ] Docker Build Pipeline
+- [ ] Deployment Automation
 
 ### Week 6 - Security
 
-* [ ] IAM
-* [ ] Secrets Management
+- [ ] IAM
+- [ ] Secrets Management
+- [ ] KMS
 
 ### Week 7 - Monitoring
 
-* [ ] Prometheus
-* [ ] Grafana
+- [ ] Prometheus
+- [ ] Grafana
+- [ ] Cloud Monitoring
 
-### Week 8 - Final Project
+### Week 8 - Portfolio Project
 
-* [ ] Architecture Design
-* [ ] Implementation
-* [ ] Documentation
+- [ ] Architecture Design
+- [ ] Implementation
+- [ ] Documentation
 
 ---
 
 ## 📂 Repository Structure
 
 ```text
-60DaysToCloud
-│
-├── Week0_Foundations
-├── Week1_Cloud_Foundations
-├── Week2_Linux_Networking
-├── Week3_Terraform
-├── Week4_Docker_Kubernetes
-├── Week5_CICD
-├── Week6_Security
-├── Week7_Monitoring
-└── Week8_Final_Project
+Week0_Foundations/
+Week1_Cloud_Foundations/
+Week2_Linux_Networking/
+Week3_Terraform/
+Week4_Docker_Kubernetes/
+Week5_CICD/
+Week6_Security/
+Week7_Monitoring/
+Week8_Portfolio_Project/
 ```
 
 ---
 
-## 🚀 Current Status
+## 📖 Learning Log
 
-✅ Day 1 Completed
+| Day | Topic | Status |
+|------|--------|---------|
+| 1 | Linux Foundations | ✅ |
+| 2 | Git & GitHub | 🔄 |
+| 3 | Linux Permissions & Search | ⬜ |
+| 4 | Processes & Monitoring | ⬜ |
+| 5 | Networking Basics | ⬜ |
 
-🎯 Next Target: Git & GitHub Fundamentals
+---
+
+## 🔗 Connect With Me
+
+LinkedIn: (Add your LinkedIn)
+
+GitHub: https://github.com/sanjhi-12
+
+#60DaysToCloud
